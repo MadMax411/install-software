@@ -1,5 +1,7 @@
 #!/bin/bash
  
+# Download and run script: wget -O - https://raw.githubusercontent.com/MadMax411/install-software/master/install_docker.sh | bash
+ 
 GREEN='\033[1;32m'
 NC='\033[0m' # No Color
  
@@ -47,4 +49,3 @@ docker-compose --version
 # Verify that you can run docker commands without sudo
 printf "${GREEN}\nDone!\n\nCheck installation of docker with command: 'docker run hello-world'\n"
 printf "On permission errors try to reboot${NC}\n\n"
-
