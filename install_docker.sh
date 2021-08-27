@@ -27,7 +27,8 @@ sudo add-apt-repository \
  
 printf "${GREEN}-- Install the latest version of Docker Engine and containerd${NC}\n"
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io -y
+sudo apt-cache policy docker-ce
+sudo apt-get install -y docker.io
  
 printf "${GREEN}-- Configure Docker to start on boot${NC}\n"
 sudo systemctl start docker
@@ -38,6 +39,7 @@ sudo groupadd docker
  
 printf "${GREEN}-- Add current user to the docker group${NC}\n"
 sudo usermod -aG docker $USER
+newgrp docker 
  
 printf "${GREEN}\n\n-- Installation Docker-Compose V1.29.2 from Github${NC}\n"
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
