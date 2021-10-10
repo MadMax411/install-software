@@ -41,8 +41,8 @@ printf "${GREEN}-- Add current user to the docker group${NC}\n"
 sudo usermod -aG docker $USER
 newgrp docker 
  
-printf "${GREEN}\n\n-- Installation Docker-Compose V1.29.2 from Github${NC}\n"
-sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+printf "${GREEN}\n\n-- Installation Docker-Compose V2.0.1 from Github${NC}\n"
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.0.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
  
 printf "${GREEN}\n-- Verify installation of docker-compose${NC}\n"
