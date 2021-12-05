@@ -2,7 +2,7 @@
 GREEN='\033[1;32m'
 NC='\033[0m' # No Color
 
-VERSION=1.17
+VERSION=1.17.4
 INSTALLDIR=/usr/local/go
  
 echo -e "${GREEN}\n>>> Downloading Go Version '$VERSION'...${NC}"
