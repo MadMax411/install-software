@@ -4,6 +4,8 @@
  
 GREEN='\033[1;32m'
 NC='\033[0m' # No Color
+
+VERSION_DOCKER_COMPOSE=2.2.3
  
 printf "${GREEN}\n-- Installation of Docker and Docker-Compose\n\nUpdate the apt package index and install packages to allow apt to use a repository over HTTPS${NC}\n\n"
 sudo apt-get update
@@ -41,8 +43,8 @@ printf "${GREEN}-- Add current user to the docker group${NC}\n"
 sudo usermod -aG docker $USER
 newgrp docker 
  
-printf "${GREEN}\n\n-- Installation Docker-Compose V2.0.1 from Github${NC}\n"
-sudo curl -L "https://github.com/docker/compose/releases/download/v2.0.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+printf "${GREEN}\n\n-- Installation Docker-Compose V${VERSION_DOCKER_COMPOSE} from Github${NC}\n"
+sudo curl -L "https://github.com/docker/compose/releases/download/v${VERSION_DOCKER_COMPOSE}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
  
 printf "${GREEN}\n-- Verify installation of docker-compose${NC}\n"
