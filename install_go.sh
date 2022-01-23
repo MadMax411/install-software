@@ -2,11 +2,13 @@
 GREEN='\033[1;32m'
 NC='\033[0m' # No Color
 
-VERSION=1.17
+VERSION=$(curl -s https://go.dev/VERSION?m=text)
 INSTALLDIR=/usr/local/go
- 
-echo -e "${GREEN}\n>>> Downloading Go Version '$VERSION'...${NC}"
-wget https://golang.org/dl/go$VERSION.linux-amd64.tar.gz
+FILE=$VERSION.linux-amd64.tar.gz
+URL=https://go.dev/dl/$FILE
+
+echo -e "${GREEN}\n>>> Downloading Go ${VERSION:2}...${NC}"
+wget $URL
  
 if [ -d "$INSTALLDIR" ]; then
     echo -e "${GREEN}>>> Remove old Go version...${NC}"
@@ -14,14 +16,16 @@ if [ -d "$INSTALLDIR" ]; then
 fi
 
 echo -e "${GREEN}>>> Extract go tar-package...${NC}"
-tar -C /usr/local -xzf go$VERSION.linux-amd64.tar.gz 
-rm go$VERSION.linux-amd64.tar.gz > /dev/null
+tar -C /usr/local -xzf $FILE
+rm $FILE > /dev/null
 
-echo -e "${GREEN}>>> Set ENV variables for Go...${NC}"
-echo '' >> ~/.bashrc
-echo 'export PATH=$PATH:$INSTALLDIR' >> ~/.bashrc
-export PATH=$PATH:$INSTALLDIR
+if [[ ! "$PATH" == *"$INSTALLDIR/bin"* ]]; then
+    echo -e "${GREEN}>>> Set ENV variables for Go...${NC}"
+    echo '' >> ~/.bashrc
+    echo 'export PATH=$PATH:$INSTALLDIR/bin' >> ~/.bashrc
+    export PATH=$PATH:$INSTALLDIR/bin
+fi
 
-echo -e "\n${GREEN}>>> Ready to Go! Show version...${NC}"
+echo -e "\n${GREEN}>>> Ready to Go!${NC}"
 
 go version
