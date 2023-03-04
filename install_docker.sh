@@ -28,7 +28,7 @@ sudo add-apt-repository \
 printf "${GREEN}-- Install the latest version of Docker Engine and containerd${NC}\n"
 sudo apt-get update
 sudo apt-cache policy docker-ce
-sudo apt-get install -y docker.io
+sudo apt-get install -y docker-ce
  
 printf "${GREEN}-- Configure Docker to start on boot${NC}\n"
 sudo systemctl start docker
