@@ -12,17 +12,17 @@ wget $URL
  
 if [ -d "$INSTALLDIR" ]; then
     echo -e "${GREEN}>>> Remove old Go version...${NC}"
-    rm -rf $INSTALLDIR
+    sudo rm -rf $INSTALLDIR
 fi
 
 echo -e "${GREEN}>>> Extract go tar-package...${NC}"
-tar -C /usr/local -xzf $FILE
+sudo tar -C /usr/local -xzf $FILE
 rm $FILE > /dev/null
 
 if [[ ! "$PATH" == *"$INSTALLDIR/bin"* ]]; then
     echo -e "${GREEN}>>> Set ENV variables for Go...${NC}"
-    echo '' >> ~/.bashrc
-    echo 'export PATH=$PATH:$INSTALLDIR/bin' >> ~/.bashrc
+    echo "" >> ~/.bashrc
+    echo "export PATH=${PATH}:${INSTALLDIR}/bin" >> ~/.bashrc
     export PATH=$PATH:$INSTALLDIR/bin
 fi
 
