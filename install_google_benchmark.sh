@@ -35,4 +35,8 @@ cd build && make test -j $(nproc)
 printf "${GREEN}\n-- Install the library globally as root${NC}\n"
 sudo make install
 
+printf "${GREEN}\n-- Cleanup${NC}\n"
+cd ../..
+sudo rm -r benchmark/
+
 printf "${GREEN}\n-- Ready${NC}\n}n"
