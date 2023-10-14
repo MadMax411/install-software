@@ -2,7 +2,8 @@
 GREEN='\033[1;32m'
 NC='\033[0m' # No Color
 
-VERSION=$(curl -s https://go.dev/VERSION?m=text)
+CONTENT=$(curl -s https://go.dev/VERSION?m=text) 
+VERSION=$(echo $CONTENT | cut -d " " -f 1)
 INSTALLDIR=/usr/local/go
 FILE=$VERSION.linux-amd64.tar.gz
 URL=https://go.dev/dl/$FILE
