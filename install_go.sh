@@ -19,7 +19,7 @@ if [ -f "$(which go)" ]; then
 fi
 
 # Download the new version
-echo -e "${GREEN}\n>>> Current Version ${INSTALLED_VERSION:2} -> Downloading newer version ${VERSION:2}..."
+echo -e "${GREEN}\n>>> Current Version ${INSTALLED_VERSION:2} -> Downloading newer version ${VERSION:2}...${NC}"
 wget $URL
  
 # Remove the old installation directory
